@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 public class CellPhone{
    
@@ -12,15 +13,6 @@ public class CellPhone{
         this.peakMin = pMin;
         this.nightMin = nMin;
     }
-
-    public int getPeakMin(){
-        return this.peakMin;
-    }
-
-    public int getNightMin(){
-        return this.nightMin;
-    }
-
 
     public double getBill(){
         if(peakMin > 400 || nightMin > 750){
@@ -46,10 +38,12 @@ public class CellPhone{
             System.out.print("Enter Night Min : ");
             nightCall = input.nextInt();
         }
+       
         CellPhone objcPhone = new CellPhone(dayCall, nightCall);
-        matumiz = objcPhone.getBill();
-        
-        System.out.print("The Monthly phone call bill is : Tsh. " + matumiz + "/=");
+        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+        matumizi = objcPhone.getBill();
+
+        System.out.print("The Monthly phone call bill is : " + defaultFormat.format(matumizi) + "/=");
         
     }  
 }
